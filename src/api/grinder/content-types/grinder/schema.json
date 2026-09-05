@@ -18,16 +18,6 @@
       "type": "uid",
       "targetField": "name"
     },
-    "cover": {
-      "type": "media",
-      "multiple": false,
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ]
-    },
     "type": {
       "type": "enumeration",
       "enum": [
@@ -44,7 +34,17 @@
       ]
     },
     "description": {
-      "type": "blocks"
+      "type": "text"
+    },
+    "cover": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
     }
   }
 }
