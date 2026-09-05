@@ -1,0 +1,28 @@
+{
+  "kind": "collectionType",
+  "collectionName": "process_methods",
+  "info": {
+    "singularName": "process-method",
+    "pluralName": "process-methods",
+    "displayName": "Process Method"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "name"
+    },
+    "description": {
+      "type": "text"
+    },
+    "sortOrder": {
+      "type": "integer"
+    }
+  }
+}

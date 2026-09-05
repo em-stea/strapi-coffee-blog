@@ -1,0 +1,74 @@
+{
+  "kind": "collectionType",
+  "collectionName": "coffee_drinks",
+  "info": {
+    "singularName": "coffee-drink",
+    "pluralName": "coffee-drinks",
+    "displayName": "Coffee Drink"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "name"
+    },
+    "description": {
+      "type": "text"
+    },
+    "servingSize": {
+      "type": "enumeration",
+      "enum": [
+        "Small (30 - 60 ml)",
+        "Short (120 - 150 ml)",
+        "Medium (180 - 240 ml)",
+        "Large (300 - 350 ml)",
+        "Extra Large (400+ ml)"
+      ]
+    },
+    "instructions": {
+      "type": "text"
+    },
+    "cover": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "sortOrder": {
+      "type": "integer"
+    },
+    "foamType": {
+      "type": "enumeration",
+      "enum": [
+        "Microfoam",
+        "Dense Foam",
+        "No Foam"
+      ]
+    },
+    "espressoShots": {
+      "type": "enumeration",
+      "enum": [
+        "Single (1 shot / ~18-30ml)",
+        "Double (2 shots / ~36-60ml)",
+        "Triple (3 shots)",
+        "Quad (4 shots)",
+        "Ristretto (Short, concentrated extraction)"
+      ]
+    },
+    "milk_ratio": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::milk-ratio.milk-ratio"
+    }
+  }
+}

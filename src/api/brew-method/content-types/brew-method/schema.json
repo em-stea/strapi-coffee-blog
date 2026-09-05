@@ -1,0 +1,35 @@
+{
+  "kind": "collectionType",
+  "collectionName": "brew_methods",
+  "info": {
+    "singularName": "brew-method",
+    "pluralName": "brew-methods",
+    "displayName": "Brew Method"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "name"
+    },
+    "description": {
+      "type": "text"
+    },
+    "cover": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    }
+  }
+}

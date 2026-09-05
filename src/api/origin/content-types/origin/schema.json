@@ -1,0 +1,43 @@
+{
+  "kind": "collectionType",
+  "collectionName": "origins",
+  "info": {
+    "singularName": "origin",
+    "pluralName": "origins",
+    "displayName": "Origin"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "name"
+    },
+    "region": {
+      "type": "enumeration",
+      "enum": [
+        "East Africa",
+        "South America",
+        "Central America",
+        "Middle East"
+      ]
+    },
+    "altitudeRange": {
+      "type": "string"
+    },
+    "harvestSeason": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "sortOrder": {
+      "type": "integer"
+    }
+  }
+}

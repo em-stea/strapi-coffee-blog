@@ -1,0 +1,25 @@
+{
+  "kind": "collectionType",
+  "collectionName": "roast_levels",
+  "info": {
+    "singularName": "roast-level",
+    "pluralName": "roast-levels",
+    "displayName": "Roast Level"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "name"
+    },
+    "description": {
+      "type": "text"
+    }
+  }
+}

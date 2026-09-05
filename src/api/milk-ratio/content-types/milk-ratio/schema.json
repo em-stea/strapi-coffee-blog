@@ -1,0 +1,25 @@
+{
+  "kind": "collectionType",
+  "collectionName": "milk_ratios",
+  "info": {
+    "singularName": "milk-ratio",
+    "pluralName": "milk-ratios",
+    "displayName": "Milk Ratio"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "name"
+    },
+    "description": {
+      "type": "string"
+    }
+  }
+}

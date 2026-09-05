@@ -1,0 +1,40 @@
+{
+  "kind": "collectionType",
+  "collectionName": "coffee_varieties",
+  "info": {
+    "singularName": "coffee-variety",
+    "pluralName": "coffee-varieties",
+    "displayName": "Coffee Variety"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "name"
+    },
+    "flavorProfile": {
+      "type": "text"
+    },
+    "origin": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::origin.origin"
+    },
+    "process_method": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::process-method.process-method"
+    },
+    "roast_level": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::roast-level.roast-level"
+    }
+  }
+}

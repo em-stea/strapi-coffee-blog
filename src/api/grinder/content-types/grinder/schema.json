@@ -1,0 +1,50 @@
+{
+  "kind": "collectionType",
+  "collectionName": "grinders",
+  "info": {
+    "singularName": "grinder",
+    "pluralName": "grinders",
+    "displayName": "Grinder"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "name"
+    },
+    "cover": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "Manual",
+        "Electric"
+      ]
+    },
+    "burrType": {
+      "type": "enumeration",
+      "enum": [
+        "Flat Burrs",
+        "Conical Burrs",
+        "Blade"
+      ]
+    },
+    "description": {
+      "type": "blocks"
+    }
+  }
+}
