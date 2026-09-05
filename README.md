@@ -43,4 +43,4 @@ yarn build
 
 ## ⚙️ Deployment
 
-This project is deployed on [Render](https://render.com). Browse the [deployment section of the documentation](https://docs.strapi.io/dev-docs/deployment) for more deployment options.
+This project is deployed on [Render](https://render.com) and uses [Supabase](https://supabase.com) as its database. Browse the [deployment section of the documentation](https://docs.strapi.io/dev-docs/deployment) for more deployment options.
