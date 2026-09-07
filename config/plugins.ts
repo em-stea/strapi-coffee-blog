@@ -54,7 +54,12 @@ const config = ({
         },
       },
       actionOptions: {
-        upload: {},
+        upload: {
+          folder: "coffee-blog",
+        },
+        uploadStream: {
+          folder: "coffee-blog",
+        },
         delete: {},
       },
     },
