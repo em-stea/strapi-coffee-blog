@@ -16,7 +16,8 @@
     },
     "slug": {
       "type": "uid",
-      "targetField": "name"
+      "targetField": "name",
+      "required": true
     },
     "description": {
       "type": "text"
@@ -29,6 +30,15 @@
         "files",
         "videos",
         "audios"
+      ]
+    },
+    "method_type": {
+      "type": "enumeration",
+      "enum": [
+        "Immersion Method",
+        "Manual Pour Over",
+        "Cold Extraction",
+        "Classic Extraction"
       ]
     }
   }
