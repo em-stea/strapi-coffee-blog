@@ -1,7 +1,8 @@
-# ☕ Coffee Blog - Strapi CMS
+# Coffee Blog - Strapi CMS
 
 <img width="1512" height="757" alt="Screenshot 2026-09-05 at 16 40 23" src="https://github.com/user-attachments/assets/1fc4206e-5c15-4da0-b269-af9db9f7a32b" />
 
+<br/>
 <br/>
 
 **🚀 Live Admin:** [https://strapi-coffee-blog.onrender.com](https://strapi-coffee-blog.onrender.com)
