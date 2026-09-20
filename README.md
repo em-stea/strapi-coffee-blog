@@ -31,7 +31,5 @@ Headless CMS backoffice built with Strapi to manage articles, categories, and me
 Start your Strapi application with `autoReload` enabled for local development. [Learn more](https://docs.strapi.io/dev-docs/cli#strapi-develop)
 
 ```bash
-npm run develop
-# or
-yarn develop
+pnpm develop
 ```
