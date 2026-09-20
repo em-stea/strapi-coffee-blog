@@ -52,6 +52,17 @@
     },
     "sortOrder": {
       "type": "integer"
+    },
+    "extraction_type": {
+      "type": "enumeration",
+      "enum": [
+        "Drip Filter",
+        "Classic Concentrate",
+        "Full Immersion",
+        "Cold Percolation",
+        "Gravity Percolation",
+        "Pressure Immersion"
+      ]
     }
   }
 }

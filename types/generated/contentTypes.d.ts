@@ -528,6 +528,16 @@ export interface ApiBrewMethodBrewMethod extends Struct.CollectionTypeSchema {
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     description: Schema.Attribute.Text;
+    extraction_type: Schema.Attribute.Enumeration<
+      [
+        'Drip Filter',
+        'Classic Concentrate',
+        'Full Immersion',
+        'Cold Percolation',
+        'Gravity Percolation',
+        'Pressure Immersion',
+      ]
+    >;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
