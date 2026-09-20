@@ -766,6 +766,34 @@ export interface ApiGrinderGrinder extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiHomePageHomePage extends Struct.SingleTypeSchema {
+  collectionName: 'home_pages';
+  info: {
+    displayName: 'home-page';
+    pluralName: 'home-pages';
+    singularName: 'home-page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    carousel: Schema.Attribute.Media<'images' | 'files', true>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::home-page.home-page'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiMilkRatioMilkRatio extends Struct.CollectionTypeSchema {
   collectionName: 'milk_ratios';
   info: {
@@ -1413,6 +1441,7 @@ declare module '@strapi/strapi' {
       'api::coffee-variety.coffee-variety': ApiCoffeeVarietyCoffeeVariety;
       'api::grind-size.grind-size': ApiGrindSizeGrindSize;
       'api::grinder.grinder': ApiGrinderGrinder;
+      'api::home-page.home-page': ApiHomePageHomePage;
       'api::milk-ratio.milk-ratio': ApiMilkRatioMilkRatio;
       'api::origin.origin': ApiOriginOrigin;
       'api::process-method.process-method': ApiProcessMethodProcessMethod;
