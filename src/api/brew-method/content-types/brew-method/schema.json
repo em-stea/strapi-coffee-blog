@@ -32,6 +32,15 @@
         "audios"
       ]
     },
+    "video": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
     "method_type": {
       "type": "enumeration",
       "enum": [
