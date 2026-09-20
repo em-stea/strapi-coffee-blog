@@ -63,6 +63,30 @@
         "Gravity Percolation",
         "Pressure Immersion"
       ]
+    },
+    "difficulty": {
+      "type": "enumeration",
+      "enum": [
+        "Low",
+        "Medium",
+        "High"
+      ]
+    },
+    "brew_time": {
+      "type": "string"
+    },
+    "time_note": {
+      "type": "string"
+    },
+    "grind_size": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::grind-size.grind-size"
+    },
+    "coffee_ratio": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::coffee-ratio.coffee-ratio"
     }
   }
 }

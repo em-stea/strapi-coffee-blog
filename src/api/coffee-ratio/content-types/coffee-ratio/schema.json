@@ -1,0 +1,21 @@
+{
+  "kind": "collectionType",
+  "collectionName": "coffee_ratios",
+  "info": {
+    "singularName": "coffee-ratio",
+    "pluralName": "coffee-ratios",
+    "displayName": "Coffee Ratio"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "ratio": {
+      "type": "string"
+    },
+    "detail": {
+      "type": "string"
+    }
+  }
+}

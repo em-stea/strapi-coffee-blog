@@ -523,11 +523,17 @@ export interface ApiBrewMethodBrewMethod extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
+    brew_time: Schema.Attribute.String;
+    coffee_ratio: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::coffee-ratio.coffee-ratio'
+    >;
     cover: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     description: Schema.Attribute.Text;
+    difficulty: Schema.Attribute.Enumeration<['Low', 'Medium', 'High']>;
     extraction_type: Schema.Attribute.Enumeration<
       [
         'Drip Filter',
@@ -537,6 +543,10 @@ export interface ApiBrewMethodBrewMethod extends Struct.CollectionTypeSchema {
         'Gravity Percolation',
         'Pressure Immersion',
       ]
+    >;
+    grind_size: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::grind-size.grind-size'
     >;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
@@ -556,6 +566,7 @@ export interface ApiBrewMethodBrewMethod extends Struct.CollectionTypeSchema {
     publishedAt: Schema.Attribute.DateTime;
     slug: Schema.Attribute.UID<'name'> & Schema.Attribute.Required;
     sortOrder: Schema.Attribute.Integer;
+    time_note: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -621,6 +632,35 @@ export interface ApiCoffeeDrinkCoffeeDrink extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiCoffeeRatioCoffeeRatio extends Struct.CollectionTypeSchema {
+  collectionName: 'coffee_ratios';
+  info: {
+    displayName: 'Coffee Ratio';
+    pluralName: 'coffee-ratios';
+    singularName: 'coffee-ratio';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    detail: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::coffee-ratio.coffee-ratio'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    ratio: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiCoffeeVarietyCoffeeVariety
   extends Struct.CollectionTypeSchema {
   collectionName: 'coffee_varieties';
@@ -654,6 +694,36 @@ export interface ApiCoffeeVarietyCoffeeVariety
       'oneToOne',
       'api::roast-level.roast-level'
     >;
+    slug: Schema.Attribute.UID<'name'> & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiGrindSizeGrindSize extends Struct.CollectionTypeSchema {
+  collectionName: 'grind_sizes';
+  info: {
+    displayName: 'Grind Size';
+    pluralName: 'grind-sizes';
+    singularName: 'grind-size';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::grind-size.grind-size'
+    > &
+      Schema.Attribute.Private;
+    name: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
     slug: Schema.Attribute.UID<'name'> & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -1339,7 +1409,9 @@ declare module '@strapi/strapi' {
       'api::accesory.accesory': ApiAccesoryAccesory;
       'api::brew-method.brew-method': ApiBrewMethodBrewMethod;
       'api::coffee-drink.coffee-drink': ApiCoffeeDrinkCoffeeDrink;
+      'api::coffee-ratio.coffee-ratio': ApiCoffeeRatioCoffeeRatio;
       'api::coffee-variety.coffee-variety': ApiCoffeeVarietyCoffeeVariety;
+      'api::grind-size.grind-size': ApiGrindSizeGrindSize;
       'api::grinder.grinder': ApiGrinderGrinder;
       'api::milk-ratio.milk-ratio': ApiMilkRatioMilkRatio;
       'api::origin.origin': ApiOriginOrigin;
