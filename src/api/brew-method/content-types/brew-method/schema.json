@@ -40,6 +40,9 @@
         "Cold Extraction",
         "Classic Extraction"
       ]
+    },
+    "sortOrder": {
+      "type": "integer"
     }
   }
 }
