@@ -590,6 +590,10 @@ export interface ApiCoffeeDrinkCoffeeDrink extends Struct.CollectionTypeSchema {
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     description: Schema.Attribute.Text;
+    drinks_category: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::drink-category.drink-category'
+    >;
     espressoShots: Schema.Attribute.Enumeration<
       [
         'Single (1 shot / ~18-30ml)',
@@ -695,6 +699,36 @@ export interface ApiCoffeeVarietyCoffeeVariety
       'api::roast-level.roast-level'
     >;
     slug: Schema.Attribute.UID<'name'> & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiDrinkCategoryDrinkCategory
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'drinks_categories';
+  info: {
+    displayName: 'Drinks Categories';
+    pluralName: 'drinks-categories';
+    singularName: 'drink-category';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::drink-category.drink-category'
+    > &
+      Schema.Attribute.Private;
+    name: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    slug: Schema.Attribute.UID<'name'>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1439,6 +1473,7 @@ declare module '@strapi/strapi' {
       'api::coffee-drink.coffee-drink': ApiCoffeeDrinkCoffeeDrink;
       'api::coffee-ratio.coffee-ratio': ApiCoffeeRatioCoffeeRatio;
       'api::coffee-variety.coffee-variety': ApiCoffeeVarietyCoffeeVariety;
+      'api::drink-category.drink-category': ApiDrinkCategoryDrinkCategory;
       'api::grind-size.grind-size': ApiGrindSizeGrindSize;
       'api::grinder.grinder': ApiGrinderGrinder;
       'api::home-page.home-page': ApiHomePageHomePage;

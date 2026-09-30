@@ -1,0 +1,22 @@
+{
+  "kind": "collectionType",
+  "collectionName": "drinks_categories",
+  "info": {
+    "singularName": "drink-category",
+    "pluralName": "drinks-categories",
+    "displayName": "Drinks Categories"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "name"
+    }
+  }
+}
