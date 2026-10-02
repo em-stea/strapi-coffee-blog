@@ -1,0 +1,24 @@
+{
+  "kind": "collectionType",
+  "collectionName": "espresso_shots",
+  "info": {
+    "singularName": "espresso-shot",
+    "pluralName": "espresso-shots",
+    "displayName": "Espresso Shot"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "minimumVolume": {
+      "type": "string"
+    },
+    "maximumVolume": {
+      "type": "string"
+    }
+  }
+}

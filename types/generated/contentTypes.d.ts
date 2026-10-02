@@ -594,14 +594,9 @@ export interface ApiCoffeeDrinkCoffeeDrink extends Struct.CollectionTypeSchema {
       'oneToOne',
       'api::drink-category.drink-category'
     >;
-    espressoShots: Schema.Attribute.Enumeration<
-      [
-        'Single (1 shot / ~18-30ml)',
-        'Double (2 shots / ~36-60ml)',
-        'Triple (3 shots)',
-        'Quad (4 shots)',
-        'Ristretto (Short, concentrated extraction)',
-      ]
+    espresso_shot: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::espresso-shot.espresso-shot'
     >;
     foamType: Schema.Attribute.Enumeration<
       ['Microfoam', 'Dense Foam', 'No Foam']
@@ -619,14 +614,9 @@ export interface ApiCoffeeDrinkCoffeeDrink extends Struct.CollectionTypeSchema {
     >;
     name: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
-    servingSize: Schema.Attribute.Enumeration<
-      [
-        'Small (30 - 60 ml)',
-        'Short (120 - 150 ml)',
-        'Medium (180 - 240 ml)',
-        'Large (300 - 350 ml)',
-        'Extra Large (400+ ml)',
-      ]
+    serving_size: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::serving-size.serving-size'
     >;
     slug: Schema.Attribute.UID<'name'> & Schema.Attribute.Required;
     sortOrder: Schema.Attribute.Integer;
@@ -729,6 +719,37 @@ export interface ApiDrinkCategoryDrinkCategory
     name: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
     slug: Schema.Attribute.UID<'name'>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiEspressoShotEspressoShot
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'espresso_shots';
+  info: {
+    displayName: 'Espresso Shot';
+    pluralName: 'espresso-shots';
+    singularName: 'espresso-shot';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::espresso-shot.espresso-shot'
+    > &
+      Schema.Attribute.Private;
+    maximumVolume: Schema.Attribute.String;
+    minimumVolume: Schema.Attribute.String;
+    name: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -950,6 +971,36 @@ export interface ApiRoastLevelRoastLevel extends Struct.CollectionTypeSchema {
     name: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
     slug: Schema.Attribute.UID<'name'> & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiServingSizeServingSize extends Struct.CollectionTypeSchema {
+  collectionName: 'serving_sizes';
+  info: {
+    displayName: 'Serving Size';
+    pluralName: 'serving-sizes';
+    singularName: 'serving-size';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::serving-size.serving-size'
+    > &
+      Schema.Attribute.Private;
+    maximumSize: Schema.Attribute.String;
+    minimumSize: Schema.Attribute.String;
+    name: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1474,6 +1525,7 @@ declare module '@strapi/strapi' {
       'api::coffee-ratio.coffee-ratio': ApiCoffeeRatioCoffeeRatio;
       'api::coffee-variety.coffee-variety': ApiCoffeeVarietyCoffeeVariety;
       'api::drink-category.drink-category': ApiDrinkCategoryDrinkCategory;
+      'api::espresso-shot.espresso-shot': ApiEspressoShotEspressoShot;
       'api::grind-size.grind-size': ApiGrindSizeGrindSize;
       'api::grinder.grinder': ApiGrinderGrinder;
       'api::home-page.home-page': ApiHomePageHomePage;
@@ -1481,6 +1533,7 @@ declare module '@strapi/strapi' {
       'api::origin.origin': ApiOriginOrigin;
       'api::process-method.process-method': ApiProcessMethodProcessMethod;
       'api::roast-level.roast-level': ApiRoastLevelRoastLevel;
+      'api::serving-size.serving-size': ApiServingSizeServingSize;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;

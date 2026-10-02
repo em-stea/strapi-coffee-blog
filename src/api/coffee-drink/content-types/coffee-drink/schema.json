@@ -22,16 +22,6 @@
     "description": {
       "type": "text"
     },
-    "servingSize": {
-      "type": "enumeration",
-      "enum": [
-        "Small (30 - 60 ml)",
-        "Short (120 - 150 ml)",
-        "Medium (180 - 240 ml)",
-        "Large (300 - 350 ml)",
-        "Extra Large (400+ ml)"
-      ]
-    },
     "instructions": {
       "type": "text"
     },
@@ -56,16 +46,6 @@
         "No Foam"
       ]
     },
-    "espressoShots": {
-      "type": "enumeration",
-      "enum": [
-        "Single (1 shot / ~18-30ml)",
-        "Double (2 shots / ~36-60ml)",
-        "Triple (3 shots)",
-        "Quad (4 shots)",
-        "Ristretto (Short, concentrated extraction)"
-      ]
-    },
     "milk_ratio": {
       "type": "relation",
       "relation": "oneToOne",
@@ -75,6 +55,16 @@
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::drink-category.drink-category"
+    },
+    "espresso_shot": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::espresso-shot.espresso-shot"
+    },
+    "serving_size": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::serving-size.serving-size"
     }
   }
 }

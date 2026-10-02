@@ -1,0 +1,24 @@
+{
+  "kind": "collectionType",
+  "collectionName": "serving_sizes",
+  "info": {
+    "singularName": "serving-size",
+    "pluralName": "serving-sizes",
+    "displayName": "Serving Size"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "minimumSize": {
+      "type": "string"
+    },
+    "maximumSize": {
+      "type": "string"
+    }
+  }
+}
