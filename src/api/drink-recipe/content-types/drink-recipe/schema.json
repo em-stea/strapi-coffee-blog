@@ -1,0 +1,55 @@
+{
+  "kind": "collectionType",
+  "collectionName": "drink_recipes",
+  "info": {
+    "singularName": "drink-recipe",
+    "pluralName": "drink-recipes",
+    "displayName": "Drink Recipe"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "milk_ratio": {
+      "type": "component",
+      "component": "milk-ratio.milk-ratio",
+      "repeatable": true
+    },
+    "serving_size": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::serving-size.serving-size"
+    },
+    "espresso_shot": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::espresso-shot.espresso-shot"
+    },
+    "foam_type": {
+      "type": "enumeration",
+      "enum": [
+        "MicroFoam",
+        "DenseFoam"
+      ]
+    },
+    "water_ratio": {
+      "type": "component",
+      "component": "water-ratio.water-ratio",
+      "repeatable": false
+    },
+    "whiskey_ratio": {
+      "type": "component",
+      "component": "whiskey-ratio.whis",
+      "repeatable": false
+    },
+    "syrup_ratio": {
+      "type": "component",
+      "component": "syrup-ratio.syrup-ratio",
+      "repeatable": false
+    }
+  }
+}

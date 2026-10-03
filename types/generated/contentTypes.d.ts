@@ -590,16 +590,13 @@ export interface ApiCoffeeDrinkCoffeeDrink extends Struct.CollectionTypeSchema {
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     description: Schema.Attribute.Text;
+    drink_recipe: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::drink-recipe.drink-recipe'
+    >;
     drinks_category: Schema.Attribute.Relation<
       'oneToOne',
       'api::drink-category.drink-category'
-    >;
-    espresso_shot: Schema.Attribute.Relation<
-      'oneToOne',
-      'api::espresso-shot.espresso-shot'
-    >;
-    foamType: Schema.Attribute.Enumeration<
-      ['Microfoam', 'Dense Foam', 'No Foam']
     >;
     instructions: Schema.Attribute.Text;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
@@ -608,16 +605,8 @@ export interface ApiCoffeeDrinkCoffeeDrink extends Struct.CollectionTypeSchema {
       'api::coffee-drink.coffee-drink'
     > &
       Schema.Attribute.Private;
-    milk_ratio: Schema.Attribute.Relation<
-      'oneToOne',
-      'api::milk-ratio.milk-ratio'
-    >;
     name: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
-    serving_size: Schema.Attribute.Relation<
-      'oneToOne',
-      'api::serving-size.serving-size'
-    >;
     slug: Schema.Attribute.UID<'name'> & Schema.Attribute.Required;
     sortOrder: Schema.Attribute.Integer;
     updatedAt: Schema.Attribute.DateTime;
@@ -722,6 +711,47 @@ export interface ApiDrinkCategoryDrinkCategory
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+  };
+}
+
+export interface ApiDrinkRecipeDrinkRecipe extends Struct.CollectionTypeSchema {
+  collectionName: 'drink_recipes';
+  info: {
+    displayName: 'Drink Recipe';
+    pluralName: 'drink-recipes';
+    singularName: 'drink-recipe';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    espresso_shot: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::espresso-shot.espresso-shot'
+    >;
+    foam_type: Schema.Attribute.Enumeration<['MicroFoam', 'DenseFoam']>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::drink-recipe.drink-recipe'
+    > &
+      Schema.Attribute.Private;
+    milk_ratio: Schema.Attribute.Component<'milk-ratio.milk-ratio', true>;
+    name: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    serving_size: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::serving-size.serving-size'
+    >;
+    syrup_ratio: Schema.Attribute.Component<'syrup-ratio.syrup-ratio', false>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    water_ratio: Schema.Attribute.Component<'water-ratio.water-ratio', false>;
+    whiskey_ratio: Schema.Attribute.Component<'whiskey-ratio.whis', false>;
   };
 }
 
@@ -849,12 +879,12 @@ export interface ApiHomePageHomePage extends Struct.SingleTypeSchema {
   };
 }
 
-export interface ApiMilkRatioMilkRatio extends Struct.CollectionTypeSchema {
-  collectionName: 'milk_ratios';
+export interface ApiLiquidRatioLiquidRatio extends Struct.CollectionTypeSchema {
+  collectionName: 'liquid_ratios';
   info: {
-    displayName: 'Milk Ratio';
-    pluralName: 'milk-ratios';
-    singularName: 'milk-ratio';
+    displayName: 'Liquid Ratio';
+    pluralName: 'liquid-ratios';
+    singularName: 'liquid-ratio';
   };
   options: {
     draftAndPublish: true;
@@ -863,16 +893,14 @@ export interface ApiMilkRatioMilkRatio extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    description: Schema.Attribute.String;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
-      'api::milk-ratio.milk-ratio'
+      'api::liquid-ratio.liquid-ratio'
     > &
       Schema.Attribute.Private;
     name: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
-    slug: Schema.Attribute.UID<'name'> & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1525,11 +1553,12 @@ declare module '@strapi/strapi' {
       'api::coffee-ratio.coffee-ratio': ApiCoffeeRatioCoffeeRatio;
       'api::coffee-variety.coffee-variety': ApiCoffeeVarietyCoffeeVariety;
       'api::drink-category.drink-category': ApiDrinkCategoryDrinkCategory;
+      'api::drink-recipe.drink-recipe': ApiDrinkRecipeDrinkRecipe;
       'api::espresso-shot.espresso-shot': ApiEspressoShotEspressoShot;
       'api::grind-size.grind-size': ApiGrindSizeGrindSize;
       'api::grinder.grinder': ApiGrinderGrinder;
       'api::home-page.home-page': ApiHomePageHomePage;
-      'api::milk-ratio.milk-ratio': ApiMilkRatioMilkRatio;
+      'api::liquid-ratio.liquid-ratio': ApiLiquidRatioLiquidRatio;
       'api::origin.origin': ApiOriginOrigin;
       'api::process-method.process-method': ApiProcessMethodProcessMethod;
       'api::roast-level.roast-level': ApiRoastLevelRoastLevel;

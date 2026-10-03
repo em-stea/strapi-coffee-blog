@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_milk_ratio_milk_ratios",
+  "info": {
+    "displayName": "milk_ratio"
+  },
+  "options": {},
+  "attributes": {
+    "liquid_ratio": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::liquid-ratio.liquid-ratio"
+    }
+  },
+  "config": {}
+}

@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_water_ratio_water_ratios",
+  "info": {
+    "displayName": "water_ratio"
+  },
+  "options": {},
+  "attributes": {
+    "liquid_ratio": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::liquid-ratio.liquid-ratio"
+    }
+  },
+  "config": {}
+}

@@ -1,0 +1,18 @@
+{
+  "kind": "collectionType",
+  "collectionName": "liquid_ratios",
+  "info": {
+    "singularName": "liquid-ratio",
+    "pluralName": "liquid-ratios",
+    "displayName": "Liquid Ratio"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    }
+  }
+}

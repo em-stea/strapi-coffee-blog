@@ -38,33 +38,15 @@
     "sortOrder": {
       "type": "integer"
     },
-    "foamType": {
-      "type": "enumeration",
-      "enum": [
-        "Microfoam",
-        "Dense Foam",
-        "No Foam"
-      ]
-    },
-    "milk_ratio": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::milk-ratio.milk-ratio"
-    },
     "drinks_category": {
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::drink-category.drink-category"
     },
-    "espresso_shot": {
+    "drink_recipe": {
       "type": "relation",
       "relation": "oneToOne",
-      "target": "api::espresso-shot.espresso-shot"
-    },
-    "serving_size": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::serving-size.serving-size"
+      "target": "api::drink-recipe.drink-recipe"
     }
   }
 }

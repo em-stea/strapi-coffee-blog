@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_syrup_ratio_syrup_ratios",
+  "info": {
+    "displayName": "syrup_ratio"
+  },
+  "options": {},
+  "attributes": {
+    "liquid_ratio": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::liquid-ratio.liquid-ratio"
+    }
+  },
+  "config": {}
+}

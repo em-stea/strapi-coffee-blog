@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_whiskey_ratio_whis",
+  "info": {
+    "displayName": "whis"
+  },
+  "options": {},
+  "attributes": {
+    "liquid_ratio": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::liquid-ratio.liquid-ratio"
+    }
+  },
+  "config": {}
+}
