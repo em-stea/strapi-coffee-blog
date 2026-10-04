@@ -1,7 +1,7 @@
 {
-  "collectionName": "components_milk_ratio_milk_ratios",
+  "collectionName": "components_whipped_cream_whipped_creams",
   "info": {
-    "displayName": "milk_ratio"
+    "displayName": "whipped_cream"
   },
   "options": {},
   "attributes": {
@@ -9,10 +9,6 @@
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::liquid-ratio.liquid-ratio"
-    },
-    "pour_milk_first": {
-      "type": "boolean",
-      "default": false
     }
   },
   "config": {}

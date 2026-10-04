@@ -9,6 +9,10 @@
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::liquid-ratio.liquid-ratio"
+    },
+    "pour_water_first": {
+      "type": "boolean",
+      "default": false
     }
   },
   "config": {}

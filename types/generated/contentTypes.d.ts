@@ -739,7 +739,7 @@ export interface ApiDrinkRecipeDrinkRecipe extends Struct.CollectionTypeSchema {
       'api::drink-recipe.drink-recipe'
     > &
       Schema.Attribute.Private;
-    milk_ratio: Schema.Attribute.Component<'milk-ratio.milk-ratio', true>;
+    milk_ratio: Schema.Attribute.Component<'milk-ratio.milk-ratio', false>;
     name: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
     serving_size: Schema.Attribute.Relation<
@@ -751,6 +751,10 @@ export interface ApiDrinkRecipeDrinkRecipe extends Struct.CollectionTypeSchema {
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     water_ratio: Schema.Attribute.Component<'water-ratio.water-ratio', false>;
+    whipped_cream_ratio: Schema.Attribute.Component<
+      'whipped-cream.whipped-cream',
+      false
+    >;
     whiskey_ratio: Schema.Attribute.Component<'whiskey-ratio.whis', false>;
   };
 }

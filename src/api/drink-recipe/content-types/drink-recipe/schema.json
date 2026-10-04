@@ -17,7 +17,7 @@
     "milk_ratio": {
       "type": "component",
       "component": "milk-ratio.milk-ratio",
-      "repeatable": true
+      "repeatable": false
     },
     "serving_size": {
       "type": "relation",
@@ -49,6 +49,11 @@
     "syrup_ratio": {
       "type": "component",
       "component": "syrup-ratio.syrup-ratio",
+      "repeatable": false
+    },
+    "whipped_cream_ratio": {
+      "type": "component",
+      "component": "whipped-cream.whipped-cream",
       "repeatable": false
     }
   }

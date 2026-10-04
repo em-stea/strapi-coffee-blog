@@ -10,6 +10,8 @@ export interface MilkRatioMilkRatio extends Struct.ComponentSchema {
       'oneToOne',
       'api::liquid-ratio.liquid-ratio'
     >;
+    pour_milk_first: Schema.Attribute.Boolean &
+      Schema.Attribute.DefaultTo<false>;
   };
 }
 
@@ -30,6 +32,21 @@ export interface WaterRatioWaterRatio extends Struct.ComponentSchema {
   collectionName: 'components_water_ratio_water_ratios';
   info: {
     displayName: 'water_ratio';
+  };
+  attributes: {
+    liquid_ratio: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::liquid-ratio.liquid-ratio'
+    >;
+    pour_water_first: Schema.Attribute.Boolean &
+      Schema.Attribute.DefaultTo<false>;
+  };
+}
+
+export interface WhippedCreamWhippedCream extends Struct.ComponentSchema {
+  collectionName: 'components_whipped_cream_whipped_creams';
+  info: {
+    displayName: 'whipped_cream';
   };
   attributes: {
     liquid_ratio: Schema.Attribute.Relation<
@@ -66,6 +83,7 @@ declare module '@strapi/strapi' {
       'milk-ratio.milk-ratio': MilkRatioMilkRatio;
       'syrup-ratio.syrup-ratio': SyrupRatioSyrupRatio;
       'water-ratio.water-ratio': WaterRatioWaterRatio;
+      'whipped-cream.whipped-cream': WhippedCreamWhippedCream;
       'whiskey-ratio.whis': WhiskeyRatioWhis;
       'whiskey-ratio.whiskey-ratio': WhiskeyRatioWhiskeyRatio;
     }
